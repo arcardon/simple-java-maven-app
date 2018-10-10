@@ -10,8 +10,8 @@ pipeline {
             steps {
                dir('repo') {
                   checkout([$class: 'GitSCM', branches: [[name: "*/master"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: "https://github.com/arcardon/simple-java-maven-app.git"]]])   
-               a=`ls`
-               echo "$a"
+               sh "a=`ls`"
+               sh "echo $a"
                sh "ls "
                }
                sh "ls "
