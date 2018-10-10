@@ -6,8 +6,7 @@ pipeline {
         }
     }
     stages {
-        stage('Checkout Code') {
-            LAST_STAGE = "Checkout Code"
+        stage('get code') {
             dir('repo') {
                 checkout([$class: 'GitSCM', branches: [[name: "*/master"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: "https://github.com/arcardon/simple-java-maven-app.git"]]])   
             }
