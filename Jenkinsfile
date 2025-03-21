@@ -2,17 +2,17 @@ pipeline {
     agent any
 
     stages {
-        stage('get code') {
-            steps {
-               dir('repo') {
-                  checkout([$class: 'GitSCM', branches: [[name: "*/master"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: "https://github.com/arcardon/simple-java-maven-app.git"]]])   
-               sh "a=`ls`"
-               sh "echo $a"
-               sh "ls "
-               }
-               sh "ls "
-            }
-        }
+//        stage('get code') {
+//            steps {
+//               dir('repo') {
+//                  checkout([$class: 'GitSCM', branches: [[name: "*/master"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: "https://github.com/arcardon/simple-java-maven-app.git"]]])   
+//               sh "a=`ls`"
+//               sh "echo $a"
+//               sh "ls "
+//               }
+//               sh "ls "
+//            }
+//        }
         stage('Build') { 
             steps {
                 sh 'mvn -B -DskipTests clean package' 
